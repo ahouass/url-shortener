@@ -1,0 +1,335 @@
+/* ===== OLD SCHOOL TERMINAL / RETRO WEB STYLE ===== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #000000;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 255, 0, 0.03) 0px,
+      rgba(0, 255, 0, 0.03) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  min-height: 100vh;
+  color: #00ff00;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 640px;
+  background: #0a0a0a;
+  border: 2px solid #00ff00;
+  padding: 1.5rem;
+  box-shadow:
+    0 0 8px #00ff00,
+    0 0 16px rgba(0, 255, 0, 0.3),
+    inset 0 0 12px rgba(0, 255, 0, 0.05);
+  position: relative;
+}
+
+/* dotted header line, like an old ascii separator */
+.card::before {
+  content: "═══════════════════════════════════════════════════════";
+  display: block;
+  color: #00ff00;
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.header {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px dashed #00ff00;
+  padding-bottom: 1rem;
+}
+
+.header h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #00ff00;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 4px #00ff00, 0 0 8px rgba(0, 255, 0, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.header h1::before {
+  content: "> ";
+  color: #00ffff;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  color: #00ffff;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+}
+
+.subtitle::before {
+  content: "# ";
+  color: #555;
+}
+
+/* ===== FORM ===== */
+
+.add-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.add-input {
+  flex: 1;
+  padding: 0.6rem 0.75rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  border: 1px solid #00ff00;
+  background: #000000;
+  color: #00ff00;
+  outline: none;
+  transition: all 0.1s;
+  caret-color: #00ff00;
+}
+
+.add-input:focus {
+  background: #001a00;
+  box-shadow: 0 0 6px #00ff00, inset 0 0 4px rgba(0, 255, 0, 0.2);
+  border-color: #00ff00;
+}
+
+.add-input::placeholder {
+  color: #008800;
+  font-style: italic;
+}
+
+.add-btn {
+  padding: 0 1.25rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #00ff00;
+  color: #000000;
+  border: 2px solid #00ff00;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.add-btn:hover {
+  background: #000000;
+  color: #00ff00;
+  box-shadow: 0 0 8px #00ff00;
+}
+
+.add-btn:active {
+  transform: translateY(1px);
+}
+
+/* ===== LIST ===== */
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  background: #0a0a0a;
+  border: 1px solid #008800;
+  border-left: 3px solid #00ff00;
+  transition: all 0.1s;
+}
+
+.item:hover {
+  background: #001a00;
+  border-color: #00ff00;
+  box-shadow: 0 0 6px rgba(0, 255, 0, 0.4);
+}
+
+.item-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.short-code {
+  font-weight: 700;
+  color: #00ffff;
+  font-size: 1rem;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-shadow: 0 0 4px rgba(0, 255, 255, 0.5);
+}
+
+.short-code::before {
+  content: "→ ";
+  color: #555;
+}
+
+.short-code:hover {
+  color: #00ff00;
+  text-shadow: 0 0 6px #00ff00;
+  text-decoration: underline;
+}
+
+.original {
+  font-size: 0.72rem;
+  color: #008800;
+  margin-top: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-style: italic;
+}
+
+.original::before {
+  content: "  url: ";
+  color: #555;
+  font-style: normal;
+}
+
+.clicks {
+  font-size: 0.7rem;
+  color: #00ffff;
+  margin-top: 0.35rem;
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid #004455;
+  background: #001a22;
+  letter-spacing: 0.5px;
+}
+
+/* ===== ACTIONS ===== */
+
+.actions {
+  display: flex;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.copy-btn {
+  padding: 0.35rem 0.6rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #00ff00;
+  background: transparent;
+  color: #00ff00;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.copy-btn:hover {
+  background: #00ff00;
+  color: #000000;
+}
+
+.delete {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ff0000;
+  background: transparent;
+  color: #ff0000;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s;
+}
+
+.delete:hover {
+  background: #ff0000;
+  color: #000000;
+  box-shadow: 0 0 6px #ff0000;
+}
+
+/* ===== STATES ===== */
+
+.empty {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #008800;
+  font-size: 0.85rem;
+  font-style: italic;
+  border: 1px dashed #008800;
+  letter-spacing: 0.5px;
+}
+
+.error {
+  padding: 0.6rem 0.9rem;
+  background: #1a0000;
+  color: #ff4444;
+  border: 1px solid #ff0000;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.error::before {
+  content: "! ERROR: ";
+  font-weight: 700;
+}
+
+/* ===== SCANLINE OVERLAY ===== */
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.02) 0px,
+    rgba(0, 255, 0, 0.02) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* ===== SCROLLBAR (optional retro touch) ===== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00ff00;
+  border: 2px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00ffff;
+}
